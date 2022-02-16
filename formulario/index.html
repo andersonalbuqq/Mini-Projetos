@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Exemplo de Campo de Fomrulários</h1>
+        <p>Favor preencha os campos a seguir.</p>
+    </header>
+    <main>
+        <div>
+            <h1>Nome</h1>
+            <input type="text" placeholder="Seu Nome">
+        </div>
+
+        <div>
+            <h1>Email</h1>
+            <input type="email" placeholder="Seu Email">
+        </div>
+
+        <div>
+            <h1>Idade</h1>
+            <input type="number" min="0" placeholder="idade">
+        </div>
+
+        <div>
+            <h1>Qual opção melhor descreve sua função atual?</h1>
+            <select id="lista">
+                <option selected disabled> Escolha sua função </option>
+                <option> Estudante</option>
+                <option> Trabalho em tempo integral</option>
+                <option> Menor aprendiz</option>
+                <option> Prefiro não informar</option>
+                <option> Outro</option>
+            </select>
+        </div>
+
+        <div>
+            <h1>Você recomendaria esse site para algum amigo</h1>
+            <form style="padding-left: 20px;">
+                <input type="radio" name="indicação" id="certeza"  checked>
+                <label for="certeza">Certeza</label><br>
+                <input type="radio" name="indicação" id="talvez">
+                <label for="talvez">Talvez</label><br>
+                <input type="radio" name="indicação" id="nao">
+                <label for="nao">Não</label>
+            </form>
+        </div>
+        
+        <div>
+            <h1>Quais linguagens de programação você tem interesse?</h1>
+            <form>
+                <input type="checkbox">
+                <label> Java</label><br>
+                <input type="checkbox">
+                <label> JavaScript</label><br>
+                <input type="checkbox">
+                <label> C++</label><br>
+                <input type="checkbox">
+                <label> Python</label><br>
+                <input type="checkbox">
+                <label> PHP</label><br>
+            </form>
+        </div>
+
+        <div style="padding-top: 20px;" >
+            <h1>Deixe sua Sugestão</h1>
+            <textarea class="formulario" placeholder="Sugestões..."></textarea>
+        </div>
+
+        
+        <nav>
+            <a href="#">Enviar</a>
+        </nav>
+    </main>
+</body>
+</html>
