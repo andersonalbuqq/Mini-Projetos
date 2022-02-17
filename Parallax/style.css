@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200;300;400&display=swap');
+
+body{
+    margin: 0px;
+}
+
+:root {
+    --font1: Arial, Helvetica, sans-serif;
+    --font2: 'Stick No Bills', sans-serif;
+}
+
+.principal{
+    margin: 0px;
+    height: 100vh;
+    background-image: url(imagens/pexels-amar-saleem-311012.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    position: relative;
+    
+}
+
+.principal > h1{
+    background-color: #555673;
+    display: inline-block;
+    color: white;
+    padding: 10px;
+    letter-spacing: 4px;
+    text-align: center;
+    font-family: var(--font2);
+    font-weight: 300;
+    font-size: 2.5em;    
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);   
+}
+
+.txt01{
+    text-align: center;
+    color: #555673;
+}
+
+p{
+    margin: 0px;
+    padding: 0px 65px 100px 65px;
+    line-height: 1.8em;
+    font-family: var(--font1);
+    font-size: 1em;
+}
+
+.intermediario{
+    background-image: url(imagens/pexels-josh-hild-2448749.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.intermediario > h1{
+    color: black;
+    text-align: center;
+    font-family: var(--font2);
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+#img03 {
+    background-image: url(imagens/pexels-jiarong-deng-1034662.jpg);
+}
+
+#img03 > h1{
+    background-color: #55567357;
+    color: white;
+}
+
+h2{
+    margin: 0px;
+    padding: 100px 20px 20px 20px;
+
+}
+
+
+
+.txt02 {
+    background-color: #555673;
+    color: white;
+    text-align: center;
+}
