@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    max-width: 900px;
+    margin: auto;
+}
+
+header{
+    background-image: url(imagens/pexels-pixabay-248515.jpg);
+    background-position: center top;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1{
+    color: white;padding: 30px;
+    font-size: 2.1em;
+}
+
+header p{
+    color: white;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+header a{
+    color: white;
+    padding: 15px;
+    margin: 30px;
+    border: 1px solid white;
+    background-color: #2E2F2C;
+    text-decoration: none;
+}
+
+.secao1{
+    color: #2E2F2C;
+}
+
+.secao1 h2{
+    margin: 30px;
+    font-size: 1.7em;
+}
+
+.secao1 p{
+    columns: 2;
+    padding: 15px;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.fundo{
+    background-color: #2E2F2C;
+}
+
+.secao2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.secao2 img{
+    width: 100%;
+}
+
+.div{
+    margin: 15px;
+    min-height: 520px;
+    min-width: 160px;
+    background-color: white;
+}
+
+.div h2{
+    color: #2E2F2C;
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+.div > p{
+    color: #2E2F2C;
+    padding: 10px;
+    line-height: 1.5em;
+}
+
+.secao3{
+    height: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.secao3 h2{
+    color: #2E2F2C;
+    font-size: 1.7em;
+    margin: 30px;
+}
+
+.secao3 p{
+    color: #2E2F2C;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+aside{
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+aside h2{
+    margin: 50px;
+    font-size: 1.7em;
+}
+
+aside p{
+    padding: 25px;
+}
+
+#esquerda{
+    height: 100%;
+    background-color: #2690D4;
+    line-height: 2em;
+    flex: 1;
+}
+
+#direita{
+    height: 100%;
+    background-color: #333333;
+    line-height: 2em;
+    flex: 1;
+}
+
+footer{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-around;
+    padding: 30px;
+    font-size: 1.1em;
+}
+
+footer a{
+    color: #0762CD;
+    text-decoration: none;
+}
+
+@media(max-width: 720px){
+    .secao1 p{
+        columns: 1;
+    }
+
+    .secao2{
+        flex-direction: column;
+    }
+    aside{
+        flex-direction: column;
+        height: auto;
+    }
+
+    footer{
+        flex-direction: column;
+        min-height: 30px;
+    }
+}
