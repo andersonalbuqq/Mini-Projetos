@@ -1,21 +1,26 @@
 @charset "UTF-8";
 
+/* Projeto implementado para praticar o aprendizado de Flexbox */
+/* removendo distancias de margens da página */
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Configurações inicias de texto */
 body{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Limita o tamanho de exibição do conteúdo em tela */
 .container{
     max-width: 900px;
     margin: auto;
 }
 
+/* Configurações da imagem de fundo do cabeçalho e da disposição do conteúdo */
 header{
     background-image: url(imagens/pexels-pixabay-248515.jpg);
     background-position: center top;
@@ -26,17 +31,20 @@ header{
     align-items: center;
 }
 
+/* configuração de título */
 header h1{
     color: white;padding: 30px;
     font-size: 2.1em;
 }
 
+/* configurações do parágrafo do cabeçalho */
 header p{
     color: white;
     padding: 15px;
     margin-bottom: 30px;
 }
 
+/* configurações do link */
 header a{
     color: white;
     padding: 15px;
@@ -46,15 +54,24 @@ header a{
     text-decoration: none;
 }
 
+/* Configura a passagem do mouse sobre o link */
+header a:hover{
+    color: #2E2F2C;
+    background-color: white;
+}
+
+/* configura cor do texto da primeira seção */
 .secao1{
     color: #2E2F2C;
 }
 
+/* Configurações do título da primeira seção */
 .secao1 h2{
     margin: 30px;
     font-size: 1.7em;
 }
 
+/* Configurações do parágrafo */
 .secao1 p{
     columns: 2;
     padding: 15px;
@@ -62,10 +79,12 @@ header a{
     margin-bottom: 30px;
 }
 
+/* cor de fundo seção 2 */
 .fundo{
     background-color: #2E2F2C;
 }
 
+/* organiza exibição do conteúdo */
 .secao2{
     display: flex;
     flex-direction: row;
@@ -74,10 +93,12 @@ header a{
     margin: 0 15px;
 }
 
+/* configura tamanho de exibição da imagem */
 .secao2 img{
     width: 100%;
 }
 
+/* configura exibição de mini blocos */
 .div{
     margin: 15px;
     min-height: 520px;
@@ -85,36 +106,43 @@ header a{
     background-color: white;
 }
 
+/*  configuração de texto do título*/
 .div h2{
     color: #2E2F2C;
     padding: 20px;
     font-size: 1.2em;
 }
 
+/* configuração de texto do parágrafo */
 .div > p{
     color: #2E2F2C;
     padding: 10px;
     line-height: 1.5em;
 }
 
+/* disposição do conteúdo da seção 3 */
 .secao3{
     height: 250px;
     display: flex;
     justify-content: center;
 }
 
+
+/* configura titulos da seção 3 */
 .secao3 h2{
     color: #2E2F2C;
     font-size: 1.7em;
     margin: 30px;
 }
 
+/* configura parágrafos da seção 3 */
 .secao3 p{
     color: #2E2F2C;
     padding: 10px;
     margin-bottom: 30px;
 }
 
+/* configura disposição do conteúdo da parte inferior do site */
 aside{
     height: 400px;
     display: flex;
@@ -123,15 +151,18 @@ aside{
     color: white;
 }
 
+/* configura títulos */
 aside h2{
     margin: 50px;
     font-size: 1.7em;
 }
 
+/* configura parágrafos */
 aside p{
     padding: 25px;
 }
 
+/* configura disposição do conteúdo do lado esquerdo */
 #esquerda{
     height: 100%;
     background-color: #2690D4;
@@ -139,6 +170,7 @@ aside p{
     flex: 1;
 }
 
+/* configura disposição do conteúdo do lado direito */
 #direita{
     height: 100%;
     background-color: #333333;
@@ -146,6 +178,7 @@ aside p{
     flex: 1;
 }
 
+/* configurações do rodapé */
 footer{
     background-color: black;
     display: flex;
@@ -156,11 +189,13 @@ footer{
     font-size: 1.1em;
 }
 
+/* configurações do link */
 footer a{
     color: #0762CD;
     text-decoration: none;
 }
 
+/* configurações para a redução da tela */
 @media(max-width: 720px){
     .secao1 p{
         columns: 1;
