@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header id="header">
+        <div class="container">
+            <h1>Calculadora</h1>
+            <nav>
+                <a href="#">Fale Conosco</a>
+                <a href="#">Sobre nós</a>
+                <a href="#">Ajuda</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="centro">
+        <main>
+            <div id="calculadora">
+                
+                <div id="conta">-</div>
+                <div id="display">0</div>
+                <input type="button" value="+" class="botao" id="soma" onclick="op('+')">
+                <input type="button" value="-" class="botao" id="subtracao" onclick="op('-')">
+                <input type="button" value="*" class="botao" id="multiplicacao" onclick="op('*')">
+                <input type="button" value="/" class="botao" id="divisao" onclick="op('/')">
+                <input type="button" value="9" class="botao" id="nove" onclick="num(9)">
+                <input type="button" value="8" class="botao" id="oito" onclick="num(8)">
+                <input type="button" value="7" class="botao" id="sete" onclick="num(7)">
+                <input type="button" value="6" class="botao" id="seis" onclick="num(6)">
+                <input type="button" value="5" class="botao" id="cinco" onclick="num(5)">
+                <input type="button" value="4" class="botao" id="quatro" onclick="num(4)">
+                <input type="button" value="3" class="botao" id="tres" onclick="num(3)">
+                <input type="button" value="2" class="botao" id="dois" onclick="num(2)">
+                <input type="button" value="1" class="botao" id="um" onclick="num(1)">
+                <input type="button" value="," class="botao" id="virgula" onclick="virgula()">
+                <input type="button" value="0" class="botao" id="zero" onclick="num(0)">
+                <input type="button" value="=" class="botao" id="igual" onclick="res()">
+                <input type="button" value="CE" class="botao" id="zerar" onclick="zerar()">
+
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>Desenvolvido por <a href="https://github.com/andersonalbuqq" target="_blank" rel="author"> Anderson Albuquerque Mendes</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
