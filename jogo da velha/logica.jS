@@ -10,17 +10,20 @@ casas[2].push(document.getElementById('infCen'));
 casas[2].push(document.getElementById('infDir'));
 
 let ganhador;
-let venceu; 
+let venceu, empate; 
 
 if(OX === undefined || venceu === undefined){
     venceu = false;
+    empate = false;
     var OX = "X";
 }
 
 function marcar(elemento){
     if(venceu){    
         window.alert("A partida ja acabou. E o jogador '" + ganhador + "' venceu. Parabéns!!!")
-    } else{
+    } else if(empate){
+        window.alert("A partida ja acabou e houve um empate")
+    }else{
         if(elemento.value == ""){
             if(OX == "X"){
                 elemento.value = OX;
@@ -46,6 +49,7 @@ function zerar(){
 }
 
 function verificar(jogador){
+    
     for(let i=0; i<3; i++){
             if(casas[i][0].value !=="" && casas[i][0].value === casas[i][1].value && casas[i][0].value === casas[i][2].value){
                 venceu = true;
@@ -68,5 +72,17 @@ function verificar(jogador){
 
     if(venceu){
         window.alert("O jogador '" + ganhador + "' venceu. Parabéns!!!")
+    }
+
+    empate = true;
+    for(let i=0; i<3; i++){
+        for(let j=0; j<3; j++){
+            if(casas[i][j].value !== "O" && casas[i][j].value !== "X" ){
+                empate = false;
+            }
+        }
+    }
+    if(empate){
+        window.alert("A partida acabou empatada")
     }
 }
