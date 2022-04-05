@@ -83,7 +83,7 @@ function verificar(jogador){
             }
         }
     }
-    if(empate){
+    if(empate && !venceu){
         window.alert("A partida acabou empatada")
     }
 }
