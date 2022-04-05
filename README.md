@@ -1,4 +1,4 @@
-# html-css
+# html-css-Js
 
 Desafios que procuro desenvolver para aprender uma tecnologia nova que ainda não domino, ou para praticar conhecimentos que ja tive algum contato.
 
