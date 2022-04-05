@@ -46,6 +46,7 @@ function zerar(){
         }
     }
     venceu = false;
+    empate = false;
 }
 
 function verificar(jogador){
