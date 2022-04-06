@@ -1,41 +1,43 @@
-teste = document.getElementById('conta');
+displayCompleto = document.getElementById('conta'); //variavel para apontar para o display que exibe a conta por inteiro
 
-var tela = document.getElementById('display');
+var tela = document.getElementById('display');   // variavel para apontar para o display básico
+
 var ent;
 var memoria;
-var comvirgula = false;
-var operacao;
+var comvirgula = false;  //informa se o número possui virgulas
+var operacao;   //Operação a ser realizada
 var resultado;
-var novodigito;
+var temdigito;  //armazena se existe no display básico um valor que ainda não foi usado
 
 
-//recebe os  números digitados
+    //recebe os  números digitados e os exibe no display básico
 function num(valor){      
-    //reconhece nova operação
-    if(operacao == undefined && !novodigito && memoria !=undefined){
+        //reconhece se foi inserida nova operação
+    if(operacao == undefined && !temdigito && memoria !=undefined){
         zerar();
     } 
 
-    //remove o zero do início do número
-    if(!novodigito){
+        //Reseta o display para o valor de zero após inserida nova operação ou exibir resultado
+    if(!temdigito){
         tela.innerHTML="0"
     }
+
+        //remove a repetição dos zeros como primero número
     if(parseFloat(tela.innerHTML) == 0 && !comvirgula){
-        tela.innerHTML='';
         tela.innerHTML = valor;
-        novodigito = true
+        temdigito = true
 
-    //verifica o limite de dígitos 
-    }else if(tela.innerHTML.length<=9){
-        tela.innerHTML += valor;
-        novodigito = true;
+            //verifica o limite de dígitos e constroi o numero inserido
+        }else if(tela.innerHTML.length<=9){
+            tela.innerHTML += valor;
+            temdigito = true;
 
-    } else{
-        window.alert('limite de dígitos atingido');
-    }
+            } else{
+                window.alert('limite de dígitos atingido');
+            }
 }
 
-//adiciona a virgula ao numero
+    //adiciona a virgula ao numero
 function virgula(){
     if(tela.innerHTML.indexOf('.') == -1){
         tela.innerHTML += '.';
@@ -43,7 +45,7 @@ function virgula(){
     }
 }
 
-//zera tudo na calculadora
+    //zera tudo na calculadora
 function zerar(){
     ent = undefined;
     memoria = undefined;
@@ -53,34 +55,33 @@ function zerar(){
     tela.innerHTML = '0';
 }
 
-//operação
-
+    //operação
 function op(operador){
-    //armazena o valor da tela em uma variavel adequada
-    if(novodigito){
+
+        //verifica se já existe alguma operação cadastrada e armazena o valor da tela em uma variavel adequada
+    if(temdigito){
         if(memoria == undefined){
             memoria = tela.innerHTML;
         } else{
             ent =tela.innerHTML;
         }
         
-        novodigito = false;    
+        temdigito = false;    
         res();
     }
-
 
     this.operacao = operador;
     comvirgula = false;
 }
 
 function res(){
-    if(novodigito){
+    if(temdigito){
         if(memoria == undefined){
             memoria = tela.innerHTML;
         } else{
             ent =tela.innerHTML;
         }
-        novodigito = false;    
+        temdigito = false;    
     }
     if(ent != undefined){
         switch(operacao){
@@ -99,7 +100,7 @@ function res(){
         }
 
         if(resultado != undefined){
-            teste.innerHTML= ` ${memoria} ${operacao} ${ent} = ${resultado}   `;
+            displayCompleto.innerHTML= ` ${memoria} ${operacao} ${ent} = ${resultado}   `;
             memoria = resultado;
             tela.innerHTML = resultado;
             ent = undefined;

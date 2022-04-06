@@ -25,10 +25,10 @@ if(OX === undefined || venceu === undefined){
 function marcar(elemento){
     //Verificação se já houve um vencedor.
     if(venceu){    
-        window.alert("A partida ja acabou. E o jogador '" + ganhador + "' venceu. Parabéns!!!")
+        escrever("A partida ja acabou. E o jogador '" + ganhador + "' venceu. Parabéns!!!")
     //Verificação se houve um empate.
     } else if(empate){
-        window.alert("A partida ja acabou e houve um empate")
+        escrever("A partida ja acabou e houve um empate")
     }else{
         //Controle de qual jogador da vez O/X.      
         if(elemento.value == ""){
@@ -54,6 +54,7 @@ function zerar(){
     }
     venceu = false;
     empate = false;
+    escrever("");
 }
 
 //Verificação se houve um ganhador ou empate.
@@ -85,7 +86,7 @@ function verificar(jogador){
 
     //exibição de mensagem de vitória
     if(venceu){
-        window.alert("O jogador '" + ganhador + "' venceu. Parabéns!!!")
+        escrever("O jogador '" + ganhador + "' venceu. Parabéns!!!")
     }
 
     //Verifica se houve empate
@@ -100,6 +101,11 @@ function verificar(jogador){
 
     //exibe mensagem de empate.
     if(empate && !venceu){
-        window.alert("A partida acabou empatada")
+        escrever("A partida acabou empatada")
     }
+}
+
+function escrever(texto){
+    let local = window.document.getElementById('destaque');
+    local.innerHTML = texto;
 }
