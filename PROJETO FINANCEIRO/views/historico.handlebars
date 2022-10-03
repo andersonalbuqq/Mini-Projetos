@@ -1,0 +1,43 @@
+<div class="janela" id="hist">
+    <h1>HISTÓRICO DE MOVIMENTAÇÕES</h1>
+
+    <table class="tabela">
+        <thead>
+            <th scope="col">Data</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Conta</th>
+        </thead>
+        <tbody>
+            {{#each info}}
+            <tr>
+                <td>{{this.periodo}}</td>
+                <td>
+                    <a href="/movimentacao/detalhe/{{this.id_mov}}">
+                        {{this.descricao}}
+                    </a>
+                </td>
+                <td>
+                    {{this.valor}}
+                    {{#if this.entrada}}
+                        <div class="ent">E</div>
+                    {{else}}    
+                        <div class="sai">S</div>
+                    {{/if}}
+                </td>
+                <td>{{this.nome}}</td>
+            </tr>
+            {{/each}}
+            
+        </tbody>
+        <tfoot>
+            <td colspan='4' id="rodape_tabela">
+                <div class="sai">S</div> 
+                = Saída
+                &nbsp;&nbsp;
+                <div class="ent">E</div> 
+                = Entrada
+            </td>
+        </tfoot>
+    </table>
+</div>

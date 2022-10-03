@@ -1,0 +1,160 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 62.5%;
+}
+
+header {
+    margin-top: 0;
+    height: 100px;
+    background-color: #CCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    text-align: center;
+    font-family: monospace;
+    font-size: 2rem;
+}
+
+.opcoes {
+    padding: 15px 50px;
+    margin: 0 30px;
+    list-style: none;
+    border-bottom: 1px solid #C1C1C1;
+    font-size: 1rem;
+    display: flex;
+}
+
+.opcoes li {
+    padding-right: 20px;
+}
+
+.opcoes a {
+    text-decoration: none;
+    color: black;
+}
+
+.opcoes a:hover {
+    font-weight: bold;
+    background-color: #C1C1C1;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.janela {
+    margin: 70px auto;
+    padding: 0 20px 20px 20px;
+    width: 300px;
+    background-color: #a8a8a8;
+    border-radius: 15px;
+    font-size: .8rem;
+}
+
+.janela h1 {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.controle>input,
+.controle>select {
+    border-radius: 5px;
+    border: 0;
+    margin: 5px 0;
+    padding: 5px 15px;
+}
+
+.controle>div {
+    margin: 5px 0;
+    padding: 5px 15px;
+}
+
+.alinha_cadastro {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#cadastro {
+    width: 50%;
+    border-radius: 5px;
+    padding: 5px;
+    border: 0;
+}
+
+.controle {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5em;
+    font-weight: bold;
+}
+
+#hist {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tabela{
+    border-collapse: collapse;
+}
+
+.tabela th,
+.tabela td{
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.tabela td{
+    background-color: white;
+}
+
+.tabela td a{
+    text-decoration: none;
+    color: black;
+}
+
+.tabela td a:hover{
+    text-decoration: underline;
+}
+
+.tabela th{
+    background-color: #1f2042;
+    color: white;
+}
+
+.ent{
+    padding: 0 3px;
+    border-radius: 50px;
+    border: 1px solid rgb(33, 177, 66);
+    background-color: rgb(33, 177, 66);
+    color: white;
+    display: inline;
+}
+
+.sai{
+    padding: 0 3px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 0, 0);
+    background-color: rgba(255, 0, 0);
+    color: white;
+    display: inline;
+}
+
+#rodape_tabela{
+    text-align: end;
+}
+
+.resumo{
+    margin: 0 auto;
+    width: 100%;
+}   
+
+#insulficiente{
+    color:rgb(114, 0, 0)
+}

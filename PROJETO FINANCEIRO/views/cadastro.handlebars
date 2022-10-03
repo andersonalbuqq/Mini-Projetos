@@ -1,0 +1,36 @@
+<div class="janela">
+    <h1>Nova Movimentação:</h1>
+
+<form action="/movimentacao/cadastro" method="POST">
+        <div class="controle">
+            <label for="data">Data:</label>
+            <input type="date" name="data" required>
+        </div>
+        <div class="controle">
+            <label for="descricao">Descrição: </label>
+            <input type="text" name="descricao" placeholder="Descreva a movimentação" max="255" required>
+        </div>
+        <div class="controle">
+            <label for="valor">Valor:</label>
+            <input type="number" step="0.01" min="0.01" name="valor" required>
+        </div>
+        <div class="controle">
+            <label for="tipo">Tipo de movimentação:</label>
+            <div>
+                <input type="radio" name="tipo" value="E"> Entrada
+                <input type="radio" name="tipo" value="S" checked> Saída
+            </div>
+        </div>
+        <div class="controle">
+            <label for="conta">Origem/Destino do valor:</label>
+            <select name="conta" id="conta">,
+                {{#each contas}}
+                    <option value="{{this.id_conta}}">{{this.nome}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="alinha_cadastro">
+            <input id='cadastro' type="submit" value="Cadastrar">
+        </div>
+    </form>
+</div>

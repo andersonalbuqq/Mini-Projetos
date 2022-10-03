@@ -1,0 +1,18 @@
+<div class="janela">
+    <h1>Detalhes</h1>
+    
+    <p><strong>Descrição: </strong>{{info.descricao}}</p>
+    <p><strong>Data da Movimentação:</strong> {{info.periodo}} </p>
+    <p><strong>{{info.mov}}</strong> de <strong>R$ {{info.valor}}</strong>.</p>
+    <p><strong>Local da movimentacao:</strong> {{info.nome}}</p>
+
+    <form action="/movimentacao/excluir" method="POST">
+        <input type="hidden" name="id_mov" value="{{info.id_mov}}">
+        <input type="submit" value="Excluir"> 
+    </form>
+
+    <form action="/movimentacao/editar" method="POST">
+        <input type="hidden" name="id_mov" value="{{info.id_mov}}">
+        <input type="submit" value="Editar"> 
+    </form>
+</div>
