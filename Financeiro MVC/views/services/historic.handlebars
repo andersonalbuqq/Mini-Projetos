@@ -1,0 +1,77 @@
+{{!-- <div class="container"> --}}
+    <h1 class="title">Suas Movimentações</h1>
+    <div class="underline"></div>
+
+    <form action="/historic" method="GET" class="search">
+        <input type="text" name="search" placeholder="Buscando alguma movimentação?">
+        <button type="submit"><i class="bi bi-search"></i> </button>
+    </form>
+
+    <div class="search-options">
+        <span>Ordenar por:</span>
+        <form action="/historic" method="GET">
+            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="order" value="new">
+            <button type="submit"><i class="bi-arrow-up"></i></button>
+        </form>
+        <form action="/historic" method="GET">
+            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="order" value="old">
+            <button type="submit"><i class="bi-arrow-down"></i></button>
+        </form>
+    </div>
+    <form action="/historic" method="GET" class="search-options">
+        <label for="accountid">Filtrar por conta:  </label>
+        <select name="accountid">
+            {{#each accounts}}
+                <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+    {{#if needclean}}
+        <a href="/historic" class="clean">Limpar Busca</a>
+    {{/if}}
+
+    <table class="general-table">
+        <thead>
+            <th scope="col">Data</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Conta</th>
+        </thead>
+        <tbody>
+            {{#each financial_transactions}}    
+                <tr>
+                    <td>{{this.date}}</td>
+                    <td>
+                        <a href="">
+                            {{this.description}}
+                        </a>
+                    </td>
+                    <td>
+                        <div class="money-align">
+                            {{this.value}}
+                            {{#if this.isentry}}
+                                <div class="in">E</div>
+                            {{else}}
+                                <div class="out">S</div>
+                            {{/if}}
+                        </div>
+                    <td>{{this.Account.name}}</td>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+        <tfoot>
+            <td colspan='4'>
+                <div class="out">S</div> 
+                = Saída
+                &nbsp;&nbsp;
+                <div class="in">E</div> 
+                = Entrada
+            </td>
+        </tfoot>    
+    </table>
+
+{{!-- </div> --}}

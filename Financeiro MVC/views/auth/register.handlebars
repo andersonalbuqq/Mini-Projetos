@@ -1,0 +1,28 @@
+<h1>Cadastro</h1>
+
+<form action="/register" method="POST">
+    <div class="form-field">
+        <label for="name">Nome:</label>
+        <input type="text" name="name" placeholder="Informe seu Nome" required>
+    </div>
+    <div class="form-field">
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Informe seu Email" required>
+        {{#if messages.emailErr}}
+            <span>{{messages.emailErr}}</span>
+        {{/if}}
+    </div>
+    <div class="form-field">
+        <label for="password">Senha:</label>
+        <input type="password" name="password" placeholder="Informe sua senha" required>
+    </div>
+    <div class="form-field">
+        <label for="passwordConfirm">Confirme sua senha:</label>
+        <input type="password" name="passwordConfirm" placeholder="Confirme sua senha" required>
+        {{#if messages.passwordErr}}
+            <span>{{messages.passwordErr}}</span>
+        {{/if}}
+    </div>
+    <input type="submit" id="btn-login" value="Criar Conta">
+    <a href="/login">Faça Login!</a>
+</form>

@@ -1,0 +1,439 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+}
+
+:root{
+    --background: #2D3142;
+    --white: #FFF;
+    --emphasis: #F7B32B;
+    --base1: #468189;
+    --base2: #6AFF97;
+}
+
+/* ================================= Layout ================================= */
+body{
+    background-color: var(--background);
+}
+
+.setup{
+    height: 100vh;
+    display: flex;
+}
+
+.side-options{
+    background-color: var(--base1);
+    height: fit-content;
+    min-height: 100vh;
+    width: 20%;
+    min-width: 120px;
+    max-width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.side-options img{
+    width: 100%;
+}
+
+.side-options ul{
+    text-align: center;
+    list-style: none;
+}
+
+.side-options ul li{
+    border-bottom: 1px solid var(--white) ;
+    margin: 1em 1.5em;
+}
+
+.side-options ul li a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+.side-options ul li a:hover{
+    color: var(--emphasis);
+    transition: .8s;
+}
+
+.info p,
+footer p{
+    color: var(--white);
+    font-size: .8em;
+    margin-left: .5em;
+    text-align: center;
+}
+
+.info p span,
+footer p span{
+    display: block;
+    color: var(--emphasis);
+}
+
+.info-img{
+    margin: 1em auto;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+.info-img a{
+    min-width: 25px;
+    width: 15%;
+}
+
+.container{
+    margin-left: 20%;
+}
+
+footer{
+    display: none;
+    background-color: var(--base1);
+}
+
+@media(max-width: 580px){
+    .setup{
+        height: fit-content;
+        flex-direction: column;
+    }
+
+    .side-options{
+        min-height: auto;
+    }
+
+    .side-options div{
+        background-color: var(--base1);
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .side-options img{
+        max-width: 230px;
+        margin: -2em;
+    }
+
+    .side-options ul{
+        display: flex;
+        margin-bottom: 1em;
+    }
+
+    .side-options ul li{
+        margin: .3em;
+    }
+
+    .container{
+        margin:170px 0;
+    }
+
+    .info{
+        display: none !important;
+    }
+
+    footer{
+        padding-top: 1em;
+        display: block;
+    }
+
+    .info-img a{
+        width: auto;
+    }
+
+    .info-img a img{
+        max-height: 2em;
+    }
+
+    .title{
+        text-align: center;
+    }
+
+}
+
+/* ================================= View (main) ================================= */
+
+main{
+    width: 100%;
+}
+
+.title{
+    margin: 1em 2em 0 2em;
+    color: var(--emphasis);
+}
+
+.underline{
+    width: calc(100% - 7em); 
+    border-top: 1px solid var(--emphasis);
+    margin-left: 3.5em;
+    margin-bottom: 3em;
+}
+
+@media(max-width: 580px){
+    .title{
+        margin: 1em 0 0 0;
+        width: 100%;
+    }
+
+    .underline{
+        margin: 0 0 2em 0;
+        width: 100%;
+    }
+
+    .general-table{
+        width: 100%;
+    }
+}
+
+/* ================================= View (home) ================================= */
+
+.content{
+    margin-left: 1em;
+    margin-bottom: 1em;
+    color: var(--white);
+}
+
+.balance-table,
+.general-table{
+    margin: 2em auto ;
+    border-collapse: collapse;
+    background-color: var(--base1);
+    color: white;
+    border-radius: 15px;
+}
+
+.balance-table{
+    min-width: 300px;
+}
+
+.balance-table td{
+    text-align: center;
+    color: var(--emphasis);
+    padding: .5em;
+}
+
+.balance-table thead th,
+.general-table thead th{
+    text-align: center;
+    padding: .5em;
+    width: 15vw;
+    font-weight: bold;
+}
+
+.balance-table tbody th,
+.balance-table tfoot th{
+    font-weight: bolder;
+    padding: .5em;
+}
+.balance-table tfoot th div{
+    font-weight: bold;
+}
+
+.money-align-balance{
+    width: 80px;
+    text-align: end;
+    margin: auto;
+}
+
+/* ================================= View (transaction) ================================= */
+
+.insert{
+    min-width: fit-content;
+    width: 30%;
+    max-width: 400px;
+    margin: 0 auto ;
+    padding: 2em;
+    background-color: var(--base1);
+    color: white;
+    border-radius: 15px;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5em;
+}
+
+.form-field label{
+    margin-bottom: .2em;
+}
+
+.form-field input,
+.form-field select{
+    border: none;
+    border-radius: .5em;
+    padding: .3em .7em;
+    margin-bottom: .5em;
+}
+
+.form-field div{
+    margin-left: 1em;
+    font-size: .8em;
+}
+
+.form-field div input[type ='radio']{
+    width: .8em;
+    height: .8em;
+}
+
+.form-field span{
+    color: var(--emphasis);
+    font-size: .7em;
+    align-self: center;
+}
+
+.register-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.register-button input{
+    border: none;
+    border-radius: .5em;
+    padding: .3em .7em;
+    font-weight: bold;
+    color: var(--base2);
+    background-color:var(--background);
+    cursor: pointer;
+}
+
+.register-button input:hover{
+    background-color: var(--base2);
+    color: var(--background);
+    transition: .5s;
+}
+
+/* ================================= View (historic) ================================= */
+
+.search{
+    display: flex;
+    justify-content: center;
+    margin: 1em 2em;
+}
+
+.search input[type = "text"]{
+    width: 30%;
+    min-width: 240px;
+    padding: .5em 1em;
+    border: none;
+    border-bottom-left-radius: .8em;
+    border-top-left-radius: .8em;
+}
+
+.search button{
+    width: fit-content;
+    padding: .3em 1em;
+    border: none;
+    border-bottom-right-radius: .8em;
+    border-top-right-radius: .8em;
+    background-color: var(--base2);
+    color: var(--background);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.search-options{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+    color: var(--emphasis);
+}
+
+.search-options form button{
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    margin-left: 2em;
+    cursor: pointer;
+}
+
+.search-options form button:hover,
+.search-options a:hover,
+.clean:hover{
+    color: var(--base2);
+    transform: .5s;
+}
+
+.clean{
+    text-decoration: none;
+    text-align: center;
+    color: var(--white);
+    margin-left: 2em;
+    margin-bottom: 1em;
+    display: block;
+}
+
+.search-options select{
+    border-radius: 10px;
+    margin: 0 1em;
+    padding: .1em .5em;
+}
+
+.search-options button{
+    border: none;
+    border-radius: .5em;
+    padding: .3em .7em;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--base2);
+    color: var(--background);
+}
+
+.general-table tbody td{
+    text-align: center;
+}
+
+.general-table tbody tr:nth-child(2n-1){
+    color: var(--emphasis);
+}
+
+.in{
+    padding: 0 .3em;
+    border-radius: 50px;
+    border: 1px solid var(--base2);
+    background-color: var(--base2);
+    color: var(--background);
+    display: inline;
+    font-weight: bolder;
+    font-size: .8em;
+    justify-self: flex-end;
+}
+
+.out{
+    padding: 0 .3em;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 0, 0);
+    background-color: rgba(255, 0, 0);
+    color: var(--background);
+    display: inline;
+    font-weight: bolder;
+    font-size: .8em ;
+}
+
+.general-table tfoot{
+    text-align: end;
+}
+
+.general-table tfoot td{
+    padding: .7em 1em .5em;
+    font-size: .9em;
+}
+
+.money-align{
+    width: 100px;
+    text-align: end;
+    margin: auto;
+}
+
+@media(max-width: 400px){
+    .money-align{
+        width: fit-content;
+    }
+}

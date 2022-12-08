@@ -1,0 +1,146 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+}
+
+:root{
+    --background: #2D3142;
+    --white: #FFF;
+    --emphasis: #F7B32B;
+    --base1: #468189;
+    --base2: #6AFF97;
+}
+
+body{
+    background-color: var(--background);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-primary{
+    width: 75%;
+    max-width: 950px;
+    min-height: 500px;
+    background-color: var(--base1);
+    border-radius: 15px;
+    padding: 2em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.primary-logo{
+    width: 50%;
+}
+
+.primary-logo img{
+    width: 100%;
+    min-width: 220px;
+}
+
+.space{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.primary-form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.475);
+    border-radius: 15px;
+    padding: 1.5em;
+}
+
+.primary-form h1{
+    color: var(--emphasis);
+    align-self: center;
+    margin-bottom: .3em;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+    margin: .5em 0;
+}
+
+.form-field label{
+    margin-bottom: 0.5em;
+}
+
+.form-field input{
+    padding: 0.5em 1em;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.form-field input::placeholder{
+    color: var(--background);
+}
+
+.form-field span{
+    font-size: .8em;
+    align-self: center;
+    color: red;
+    margin-top: .5em;
+}
+
+.primary-form form{
+    display: flex;
+    flex-direction: column;
+}
+
+.primary-form form a{
+    margin-top: 1.5em;
+    align-self: center;
+    color: var(--emphasis);
+    font-size: .9em;
+}
+
+#btn-login{
+    background-color: var(--base1);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    margin-top: 1em;
+    padding: .5em 1em;
+    width: fit-content;
+    align-self: end;
+    cursor: pointer;
+}
+
+/* ======================== Resposividade ======================== */
+
+@media(max-width: 950px){
+    body{
+        background-color: var(--base1);
+        height: auto;
+    }
+
+    .container-primary{
+        flex-direction: column;
+    }
+
+    .space{
+        width: 100%;
+    }
+
+    .primary-form{
+        width: 100%;
+    }
+
+    .primary-logo{
+        width: 90%;
+    }
+
+}

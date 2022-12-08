@@ -1,0 +1,25 @@
+{{!-- <div class="container"> --}}
+    <h1 class="title">Saldos</h1>
+    <div class="underline"></div>
+    
+    <p class="content">Bem vindo, {{user.name}}.</p>
+    
+    <table class="balance-table">
+        <thead>
+            <th scope="col">Conta</th>
+            <th scope="col">Saldo (R$)</th>
+        </thead>
+        <tbody>
+            {{#each accounts}}
+                <tr>
+                    <th scope="row">{{this.name}}</th>
+                    <td><div class="money-align-balance">{{this.balance}}</div></td>
+                </tr>
+            {{/each}}
+        </tbody>
+        <tfoot>
+            <th scope="row">Total</th>
+            <th scope="col"><div class="money-align-balance">{{total}}</div></th>
+        </tfoot>
+    </table>
+{{!-- </div> --}}

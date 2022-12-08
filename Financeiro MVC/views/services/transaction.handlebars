@@ -1,0 +1,40 @@
+{{!-- <div class="container"> --}}
+    <h1 class="title">Nova Movimentação:</h1>
+    <div class="underline"></div>
+    
+    <form action="/transaction" method="POST" class="insert">
+        <div class="form-field">
+            <label for="date">Data:</label>
+            <input type="date" name="date" required>
+        </div>
+        <div class="form-field">
+            <label for="description">Descrição: </label>
+            <input type="text" name="description" placeholder="Descreva a movimentação" max="255" required>
+        </div>
+        <div class="form-field">
+            <label for="value">Valor:</label>
+            <input type="number" step="0.01" min="0.01" name="value" required>
+            {{#if messages.insufficient_funds}}
+                <span>{{messages.insufficient_funds}}</span>
+            {{/if}}
+        </div>
+        <div class="form-field">
+            <label for="type">Tipo de movimentação:</label>
+            <div>
+                <input type="radio" name="type" value="E"> Entrada
+                <input type="radio" name="type" value="S" checked> Saída
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="accountid">Origem/Destino do valor:</label>
+            <select name="accountid">
+                {{#each accounts}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="register-button">
+            <input id='cadastro' type="submit" value="Cadastrar">
+        </div>
+    </form>
+{{!-- </div> --}}
