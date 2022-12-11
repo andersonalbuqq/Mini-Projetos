@@ -1,0 +1,33 @@
+<h1 class="title">Detalhes</h1>
+<div class="underline"></div>
+<div class="content-details">
+    <p>Descrição: <span>{{transaction.description}}</span></p>
+    <p>Data da movimentação: <span>{{transaction.date}}</span></p>
+    <p>
+        {{#if transaction.isentry}}
+            Entrada:
+        {{else}}
+            Saída:
+        {{/if}}
+    <span>{{transaction.value}}</span></p>
+    <p>Local da movimentação: <span>{{transaction.AccountName}}</span></p>
+</div>
+<div class="buttons-container">
+    <form action="/delete" method="POST">
+        <input type="hidden" name="transaction_id" value={{transaction.id}}>
+        <button type="submit" class="button">
+            Excluir <img src="/img/trash.svg" alt="Lixo">
+        </button>
+    </form>
+
+    <button class="button" onclick="location.href='/historic'">
+        Voltar <img src="/img/return.svg" alt="Voltar">
+    </button>
+
+    <form action="/edit" method="POST">
+        <input type="hidden" name="transaction_id" value={{transaction.id}}>
+        <button type="submit" class="button">
+            Editar <img src="/img/edit.svg" alt="Edit">
+        </button>
+    </form>
+</div>

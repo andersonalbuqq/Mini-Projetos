@@ -1,0 +1,44 @@
+ <h1 class="title">Edição:</h1>
+    <div class="underline"></div>
+    
+    <form action="/update" method="POST" class="insert">
+        <input type="hidden" name="transactionId" value="{{transaction.id}}">
+        <div class="form-field">
+            <label for="date">Data:</label>
+            <input type="date" name="date" value="{{transaction.date}}">
+        </div>
+        <div class="form-field">
+            <label for="description">Descrição: </label>
+            <input type="text" name="description" placeholder="Descreva a movimentação" max="255" value={{transaction.description}} required>
+        </div>
+        <div class="form-field">
+            <label for="value">Valor:</label>
+            <input type="number" step="0.01" min="0.01" name="value" value={{transaction.value}} required>
+            {{#if messages.insufficient_funds}}
+                <span>{{messages.insufficient_funds}}</span>
+            {{/if}}
+        </div>
+        <div class="form-field">
+            <label for="type">Tipo de movimentação:</label>
+            <div>
+                {{#if transaction.isentry}}
+                    <input type="radio" name="type" value="E" checked> Entrada
+                    <input type="radio" name="type" value="S"> Saída
+                {{else}}
+                    <input type="radio" name="type" value="E"> Entrada
+                    <input type="radio" name="type" value="S" checked> Saída
+                {{/if}}
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="accountid">Origem/Destino do valor:</label>
+            <select name="accountid">   
+                {{#each accounts}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="register-button">
+            <input id='cadastro' type="submit" value="Atualizar">
+        </div>
+    </form>

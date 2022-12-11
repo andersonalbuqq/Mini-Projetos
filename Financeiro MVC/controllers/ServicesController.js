@@ -16,6 +16,7 @@ module.exports = class ServicesController{
                 total+= account.balance
                 account.balance = account.balance.toFixed([2])
             })
+            total = total.toFixed([2])
             
             res.render('services/home', {user, accounts, total})
         } catch (error) {
@@ -139,16 +140,144 @@ module.exports = class ServicesController{
             financial_transactions = JSON.parse(JSON.stringify(financial_transactions))
 
             financial_transactions.forEach( transaction => {
-                transaction.date = format_date(transaction.date)
-                transaction.value = transaction.value.toFixed([2])
-                transaction.isentry = transaction.type === 'E' ? true : false
+                format_transaction(transaction)
             })
+
             res.render('services/historic', {financial_transactions, needclean, accounts})   
         } catch (error) {
-            console.log(error)
+            console.log("historic error: " + error)
+        }
+    }
+
+    static async showdetails(req, res){
+        try {
+            const transactionId = req.params.id
+            let transaction = await Transaction.findOne({where:{id:transactionId},raw:true})
+            transaction = JSON.parse(JSON.stringify(transaction))
+
+            format_transaction(transaction)
+            const account = await Account.findOne({where:{id:transaction.AccountId}, raw: true})
+            transaction.AccountName = account.name
+
+            res.render('services/details', {transaction})
+        } catch (error) {
+            console.log("Show datails error: " + error)
+        }
+    }
+
+    static async delete(req, res){
+        try {
+            const transactionId = req.body.transaction_id 
+
+            let transaction =  await Transaction.findOne({where:{id: transactionId}, raw: true})
+            transaction = JSON.parse(JSON.stringify(transaction))
+            let account = await Account.findOne({where:{id: transaction.AccountId}, raw: true})
+            account = JSON.parse(JSON.stringify(account))
+
+            let newbalance
+            
+            if(transaction.type === "S"){
+                newbalance = account.balance + transaction.value
+            } else{
+                newbalance = account.balance - transaction.value
+            }
+
+            await Transaction.destroy({where:{id: transactionId}})
+            await Account.update({balance: newbalance}, {where:{id: transaction.AccountId}})
+
+            req.flash('successfullyDeleted', "Movimentação Excluida com Sucesso!")
+            res.redirect('/historic')
+            
+        } catch (error) {
+            console.log("Delete error: " + error)
+        }
+    }
+
+    static async edit(req, res){
+        try {
+            const transactionId = req.body.transaction_id 
+
+            let transaction =  await Transaction.findOne({where:{id: transactionId}, raw: true})
+            transaction = JSON.parse(JSON.stringify(transaction))
+            transaction.date = transaction.date.split("T")[0]
+
+            const accounts = await Account.findAll({where:{UserId: transaction.UserId}})
+
+            res.render('services/edit', {transaction, accounts})
+
+        } catch (error) {
+            console.log("Edit " + error)
+        }
+    }
+
+    static async update(req, res){
+
+        try {
+                const transactionId = req.body.transactionId
+                const newType = req.body.type
+                const newDescription = req.body.description
+                const newDate = req.body.date
+                const newValue = req.body.value
+                const newAccountId = req.body.accountid
+                
+                const oldTransaction = await Transaction.findOne({where:{id:transactionId}})
+
+                const oldValue = oldTransaction.value
+                const oldType = oldTransaction.type
+                const oldAccountId = oldTransaction.AccountId
+
+                //Corrige os valores nas contas envolvidas
+                if(
+                    newValue != oldValue || 
+                    newType != oldType ||
+                    newAccountId != oldAccountId
+                    ){
+                        //Desfaz movimentação incorreta
+                    const oldAccount = await Account.findOne({where:{id: oldAccountId}})
+                    let outdatedBalance = oldAccount.balance
+                    
+                    let updatedBalance
+                    if(oldType === "E"){
+                        updatedBalance = outdatedBalance - oldValue
+                    } else{
+                        updatedBalance = outdatedBalance + oldValue
+                    }
+                    
+                    await Account.update({balance: updatedBalance}, {where:{id: oldAccount.id}})
+                    
+                    //Criar a movimentação correta
+                    outdatedBalance = 0
+                    updatedBalance = 0
+                    const rightAccount = await Account.findOne({where:{id: newAccountId}})
+                    outdatedBalance = rightAccount.balance
+                    
+                    if(newType === "E"){
+                        updatedBalance = outdatedBalance + newValue
+                    } else{
+                        updatedBalance = outdatedBalance - newValue
+                    }
+
+                    await Account.update({balance: updatedBalance}, {where:{id: newAccountId}})
+                }
+
+                //atualiza a movimentação
+
+                await Transaction.update({
+                    type: newType,
+                    description: newDescription,
+                    date: newDate,
+                    value: newValue,
+                    AccountId: newAccountId
+                },{where:{id: transactionId}})
+
+                res.redirect('/historic')
+
+        } catch (error) {
+            console.log("Update " + error)
         }
     }
 }
+
 
 
 function enough_balance(balance, value, type){
@@ -185,4 +314,10 @@ function format_date(date){
     const year = formatting[0]
 
     return `${day}/${month}/${year}`
+}
+
+function format_transaction(transaction){
+    transaction.date = format_date(transaction.date)
+    transaction.value = transaction.value.toFixed([2])
+    transaction.isentry = transaction.type === 'E' ? true : false
 }

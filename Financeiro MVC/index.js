@@ -82,9 +82,10 @@ app.use('/', servicesRoutes)
 app.get('/', AuthController.login)  
 
 
+const port = process.env.PORT || 3000
 conn
 .sync()
 // .sync( {force: true})
 .then(() =>{
-    app.listen(3000)
+    app.listen(port)
 }).catch((error) => console.log(error))

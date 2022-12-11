@@ -1,4 +1,4 @@
-{{!-- <div class="container"> --}}
+
     <h1 class="title">Suas Movimentações</h1>
     <div class="underline"></div>
 
@@ -33,6 +33,10 @@
         <a href="/historic" class="clean">Limpar Busca</a>
     {{/if}}
 
+    {{#if messages.successfullyDeleted}}
+            <p class="confirmation-message">{{messages.successfullyDeleted}}</p>
+    {{/if}}
+
     <table class="general-table">
         <thead>
             <th scope="col">Data</th>
@@ -45,7 +49,7 @@
                 <tr>
                     <td>{{this.date}}</td>
                     <td>
-                        <a href="">
+                        <a class="link_table" href="/details/{{this.id}}">
                             {{this.description}}
                         </a>
                     </td>
@@ -74,4 +78,4 @@
         </tfoot>    
     </table>
 
-{{!-- </div> --}}
+    <script src="/js/graphics.js"></script>

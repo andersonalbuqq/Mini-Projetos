@@ -204,7 +204,7 @@ main{
     margin: 2em auto ;
     border-collapse: collapse;
     background-color: var(--base1);
-    color: white;
+    color: var(--white);
     border-radius: 15px;
 }
 
@@ -243,6 +243,7 @@ main{
 
 /* ================================= View (transaction) ================================= */
 
+.content-details,
 .insert{
     min-width: fit-content;
     width: 30%;
@@ -386,8 +387,19 @@ main{
     color: var(--background);
 }
 
+.link_table:link,
+.link_table:visited{
+    text-decoration : none;
+    color: unset;
+}
+
+.link_table:hover{
+    text-decoration: underline ;
+}
+
 .general-table tbody td{
     text-align: center;
+    padding: .3em 0;
 }
 
 .general-table tbody tr:nth-child(2n-1){
@@ -436,4 +448,51 @@ main{
     .money-align{
         width: fit-content;
     }
+}
+
+/* ================================= View (edittransaction) ================================= */
+
+.content-details > p{
+    padding: .2em;
+    font-weight: 500;
+}
+
+.content-details > p > span{
+    color: var(--emphasis);
+    padding-left: .5em;
+}
+
+.button {
+    border: none;
+    border-radius: .5em;
+    padding: .3em .7em;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--base2);
+    color: var(--background);
+    display: flex;
+    gap: .5em;
+}
+
+.button:hover{
+    background-color: var(--emphasis);
+    transition: .5s;
+}
+
+.buttons-container{
+    margin: 2em auto;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.confirmation-message{
+    color: var(--emphasis);
+    background-color: var(--white);
+    margin: 2em auto 0 auto;
+    padding: .5em;
+    border-radius: 15px;
+    width: fit-content;
+    font-size: .9em;
 }
